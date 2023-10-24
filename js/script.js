@@ -1,6 +1,7 @@
-//1. Adding a new item to the list:
+
 function newItem(){
 
+//Add ne item on the To Do List
 let li = $('<li></li>');
 let inputValue = $('#input').val();
 li.append(inputValue);
@@ -10,22 +11,24 @@ if (inputValue === '') {
 } else {
   $('#list').append(li);
 }
-//2. Crossing an item out:
+//strike an item on the To Do List
 function crossOut() {
-      li.toggleClass("strike");
-  }
+    li.toggleClass("strike");
+}
 
-  li.on("dblclick", function crossOut() {
-      li.toggleClass("strike");
-  });
-//3. Adding a delete button
+li.on("dblclick", function crossOut() {
+    li.toggleClass("strike");
+});
+
+//Delete an item on the To Do List
+
 let crossOutButton = $('<crossOutButton></crossOutButton>');
-crossOutButton.append(document.createTextNode('X'));
-li.append(crossOutButton);
+  crossOutButton.append(document.createTextNode('X'));
+  li.append(crossOutButton);
 
-//   crossOutButton.on("click", deleteListItem);
-//   function deleteListItem(){
-// 		li.addClass("delete")
-// 	}
- $('#list').sortable();
+   crossOutButton.on("click", deleteListItem);
+   function deleteListItem(){
+ 		li.addClass("delete")
+ 	}
+   $('#list').sortable();
 }
